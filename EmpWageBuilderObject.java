@@ -4,10 +4,16 @@ public class EmpWageBuilderObject
 	{
 	 //constants
 	 int FULLTIME=1;
+	 int EMP_RATE_PER_HOUR=20;
+	 //variables
+	 int empHours=0;
+	 int empWage=0;
  	 int empCheck=(int)(Math.random()*10)%2;
 	 if(empCheck==FULLTIME)
-		System.out.println("Employee is Present");
+		empHours=8;
 	 else
-		System.out.println("Employee is Absent");
+	        empHours=0;
+	 empWage=empHours*EMP_RATE_PER_HOUR;
+	 System.out.println("Employee Wage :"+empWage);
 	}
 }
