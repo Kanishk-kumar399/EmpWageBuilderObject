@@ -1,10 +1,3 @@
-public  interface IFComputeEmpWage
-{
-	public void addCompanyEmpWage(String company,int empRatePerHour,int numOfWorkDays,int maxHoursMonth);
-	public void computeEmpWage();
-	public int getTotalWage(String company);
-}
-
 public class CompanyEmpWage
 {
 	public final String company;
