@@ -2,7 +2,21 @@ public class EmpWageBuilderObject
 {
  	 static final int PARTTIME=1;
 	 static final int FULLTIME=2;
-       	 public static int computeEmpWage(String company,int empRatePerHour,int numOfWorkDays,int maxHoursMonth)
+
+	 private final String company;
+	 private final int empRatePerHour;
+	 private final int numOfWorkDays;
+	 private final int maxHoursMonth;
+	 private int totalWage;
+
+       	 public EmpWageBuilderObject(String company,int empRatePerHour,int numOfWorkDays,int maxHoursMonth)
+	 {
+		this.company=company;
+		this.empRatePerHour=empRatePerHour;
+		this.numOfWorkDays=numOfWorkDays;
+		this.maxHoursMonth=maxHoursMonth;
+	 }
+	 public void computeEmpWage()
 	 {
 	  //variables
 	  int empHours=0;
@@ -26,13 +40,20 @@ public class EmpWageBuilderObject
 	    totalHours+=empHours;
 	    System.out.println("Days :"+totalWorkingDays+" Hours :"+empHours);
 	   }
-	   int totalWage=totalHours*empRatePerHour;
-	   System.out.println("Total Employee Wage for Company :"+company+" is :"+totalWage);
-	   return totalWage;
+	   totalWage=totalHours*empRatePerHour;
+	 }
+	 @Override
+	 public String toString()
+	 {
+	   return "Total Employee Wage for Company :"+company+" is :"+totalWage;
          }
 	public static void main(String args[])
 	{
-	computeEmpWage("Dmart",20,2,10);
-	computeEmpWage("RelianceJio",10,4,22);
+	EmpWageBuilderObject Dmart=new EmpWageBuilderObject("DMart",20,2,10);
+	EmpWageBuilderObject Adani=new EmpWageBuilderObject("Adani",10,4,20);
+	Dmart.computeEmpWage();
+	System.out.println(Dmart);
+	Adani.computeEmpWage();
+	System.out.println(Adani);
 	}
 }
