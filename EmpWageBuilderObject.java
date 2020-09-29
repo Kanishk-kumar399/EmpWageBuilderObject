@@ -5,7 +5,7 @@ public class EmpWageBuilderObject
          static final int EMP_RATE_PER_HOUR=20;
 	 static final int NUMBER_OF_WORKDAYS=20;
 	 static final int MAXIMUM_WORKING_HOURS=100;
-       	 public static void main(String args[])
+       	 public static int computeEmpWage()
 	 {
 	  //variables
 	  int empHours=0;
@@ -31,5 +31,10 @@ public class EmpWageBuilderObject
 	   }
 	    int totalWage=totalHours*EMP_RATE_PER_HOUR;
 	   System.out.println("Total Employee Wage :"+totalWage);
+	   return totalWage;
          }
+	public static void main(String args[])
+	{
+	computeEmpWage();
+	}
 }
