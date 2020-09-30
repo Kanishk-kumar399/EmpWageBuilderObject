@@ -49,7 +49,7 @@ public class EmpWageBuilderArray implements IfComputeEmpWage
 	 	     empHours=0;
 	      }
 	    totalHours+=empHours;
-	    System.out.println("Days :"+totalWorkingDays+" Hours :"+empHours);
+	    System.out.println("Day :"+totalWorkingDays+" Hours :"+empHours+" Daily Employee Wage :"+(empHours*companyEmpWage.empRatePerHour));
 	   }
 	   return totalHours*companyEmpWage.empRatePerHour;
 	 }
