@@ -6,16 +6,18 @@ public class EmpWageBuilderArray implements IfComputeEmpWage
 
 	 private int numOfCompany=0;
 	 private ArrayList<CompanyEmpWage> companyEmpWageArrayList;
-
+	 private Map<String,CompanyEmpWage> companySearchWage;
 	 public EmpWageBuilderArray()
 	 {
   		companyEmpWageArrayList=new ArrayList<>();
+		companySearchWage=new HashMap<>();
 	 }
 
 	 public void addCompanyEmpWage(String company,int empRatePerHour,int numOfWorkDays,int maxHoursMonth)
 	 {
 		CompanyEmpWage companyEmpWage=new CompanyEmpWage(company,empRatePerHour,numOfWorkDays,maxHoursMonth);
 		companyEmpWageArrayList.add(companyEmpWage);
+		companySearchWage.put(company,companyEmpWage);
 	 }
 	 
 	 public void computeEmpWage()
@@ -26,6 +28,11 @@ public class EmpWageBuilderArray implements IfComputeEmpWage
 		 companyEmpWage.setTotalEmpWage(this.computeEmpWage(companyEmpWage));
 		 System.out.println(companyEmpWage);
 		}
+	 }
+	 @Override
+	 public int getTotalWage(String company)
+	 {
+	 return companySearchWage.get(company).totalEmpWage;
 	 }
 	 public int computeEmpWage(CompanyEmpWage companyEmpWage)
 	 {
@@ -60,5 +67,6 @@ public class EmpWageBuilderArray implements IfComputeEmpWage
 	obj.addCompanyEmpWage("Dmart",20,2,10);
 	obj.addCompanyEmpWage("Reliance",10,4,20);
 	obj.computeEmpWage();
+	System.out.println("Total Wage for Dmart :"+empWageBuilderArray.getTotalWage("Dmart");
 	}
 }
